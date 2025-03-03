@@ -3,9 +3,11 @@ import numpy as np
 import yfinance as yf
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
-
+CORS(app)  # Enable CORS for all routes
+    
 # Load the trained model
 try:
     model = load_model("stock_model.h5")
