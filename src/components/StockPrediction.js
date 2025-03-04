@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar"; // Import statement added
+import PredictionResult from "./PredictionResult"; // Import statement added
 
 const StockPrediction = () => {
   const [prediction, setPrediction] = useState(null);

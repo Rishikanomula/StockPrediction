@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const SearchBar = ({ onPrediction }) => {
+const SearchBar = ({ onSearch }) => {
   const [symbol, setSymbol] = useState("");
 
   const handleSubmit = async (e) => {
@@ -10,7 +10,7 @@ const SearchBar = ({ onPrediction }) => {
       const response = await axios.post("http://127.0.0.1:5000/predict", {
         symbol: symbol.toUpperCase(),
       });
-      onPrediction(response.data);  // Pass data to parent component
+      onSearch(response.data);  // Pass data to parent component
     } catch (error) {
       console.error("Error fetching prediction:", error);
     }
