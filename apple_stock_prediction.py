@@ -69,7 +69,7 @@ plt.xlabel("Time")
 plt.ylabel("Stock Price (USD)")
 plt.title("Stock Price Prediction vs Actual")
 plt.legend()
-plt.show()
+plt.show()  # Ensure this line is executed to display the plot
 
 # Saving the trained model
 try:

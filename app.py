@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, resources={r"/predict": {"origins": "*"}})  # Allow all origins
     
 # Load the trained model
 try:
@@ -14,7 +14,7 @@ try:
     print("--->Model loaded successfully")
 except Exception as e:
     print(f"--->Error loading model: {e}")
-    exit()
+    exit()  
 
 scaler = MinMaxScaler(feature_range=(0,1))
 
