@@ -50,7 +50,7 @@ def predict():
     prediction = model.predict(input_sequence)
     predicted_price = scaler.inverse_transform(prediction)[0][0]
 
-    return jsonify({"symbol": stock_symbol, "predicted_price": predicted_price})
+    return jsonify({"symbol": stock_symbol, "predicted_price": float(predicted_price)})
 
 if __name__ == '__main__':
     app.run(debug=True)
