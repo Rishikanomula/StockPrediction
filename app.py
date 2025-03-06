@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/predict": {"origins": "*"}})  # Allow all origins
+CORS(app)
     
 # Load the trained model
 try:
@@ -27,6 +27,7 @@ def predict():
         return jsonify({"error": "Invalid request. Please provide a stock symbol."}), 400
 
     stock_symbol = data['symbol']
+    print(f"Recieved request for symbol:{stock_symbol}")
     
     # Fetch stock data
     stock_data = yf.download(stock_symbol, start="2010-01-01", end="2024-01-01")

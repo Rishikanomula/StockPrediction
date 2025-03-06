@@ -13,7 +13,7 @@ const StockPrediction = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/predict", { symbol });
+      const response = await axios.post("http://127.0.0.1:5000", { symbol });
       setPrediction(response.data.predicted_price);
     } catch (err) {
       setError("Failed to fetch prediction. Check the stock symbol and try again.");
